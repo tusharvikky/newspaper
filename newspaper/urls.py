@@ -27,10 +27,6 @@ STRICT_DATE_REGEX = _STRICT_DATE_REGEX_PREFIX + DATE_REGEX
 ALLOWED_TYPES = ['html', 'htm', 'md', 'rst', 'aspx', 'jsp', 'rhtml', 'cgi',
                  'xhtml', 'jhtml', 'asp', 'shtml']
 
-GOOD_PATHS = ['story', 'article', 'feature', 'featured', 'slides',
-              'slideshow', 'gallery', 'news', 'video', 'media',
-              'v', 'radio', 'press']
-
 BAD_CHUNKS = ['careers', 'contact', 'about', 'faq', 'terms', 'privacy',
               'advert', 'preferences', 'feedback', 'info', 'browse', 'howto',
               'account', 'subscribe', 'donate', 'shop', 'admin']
@@ -99,7 +95,7 @@ def prepare_url(url, source_url=None):
     return proper_url
 
 
-def valid_url(url, verbose=False, test=False):
+def valid_url(url, verbose=False, test=False, min_path_chunks=1, whitelist_paths=None):
     """
     Is this URL a valid news-article url?
 
@@ -211,8 +207,8 @@ def valid_url(url, verbose=False, test=False):
                 if verbose: print('%s verified for being a slug' % url)
                 return True
 
-    # There must be at least 2 subpaths
-    if len(path_chunks) <= 1:
+    # Check minimum subpaths if configured (default: at least 2)
+    if (min_path_chunks is not None) and (len(path_chunks) <= min_path_chunks):
         if verbose: print('%s caught for path chunks too small' % url)
         return False
 
@@ -230,13 +226,17 @@ def valid_url(url, verbose=False, test=False):
         if verbose: print('%s verified for date' % url)
         return True
 
-    for GOOD in GOOD_PATHS:
-        if GOOD.lower() in [p.lower() for p in path_chunks]:
-            if verbose: print('%s verified for good path' % url)
-            return True
-
-    if verbose: print('%s caught for default false' % url)
-    return False
+    if whitelist_paths:
+        path_chunks_set = set(p.lower() for p in path_chunks)
+        for GOOD in whitelist_paths:
+            if GOOD.lower() in path_chunks_set:
+                if verbose: print('%s verified for good path' % url)
+                return True
+        if verbose: print('%s caught for default false' % url)
+        return False
+    else:
+        if verbose: print('%s verified for default true' % url)
+        return True
 
 
 def url_to_filetype(abs_url):

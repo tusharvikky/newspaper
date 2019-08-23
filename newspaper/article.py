@@ -317,7 +317,11 @@ class Article(object):
         """Performs a check on the url of this link to determine if article
         is a real news article or not
         """
-        return urls.valid_url(self.url)
+        return urls.valid_url(
+            self.url,
+            min_path_chunks=settings.MIN_PATH_CHUNKS,
+            whitelist_paths=settings.WHITELIST_PATHS,
+        )
 
     def is_valid_body(self):
         """If the article's body text is long enough to meet

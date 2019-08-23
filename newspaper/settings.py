@@ -49,6 +49,11 @@ ANCHOR_DIRECTORY = os.path.join(TOP_DIRECTORY, CF_CACHE_DIRECTORY)
 
 TRENDING_URL = 'http://www.google.com/trends/hottrends/atom/feed?pn=p1'
 
+MIN_PATH_CHUNKS = 1
+WHITELIST_PATHS = ['story', 'article', 'feature', 'featured', 'slides',
+                   'slideshow', 'gallery', 'news', 'video', 'media',
+                   'v', 'radio', 'press']
+
 for path in (TOP_DIRECTORY, MEMO_DIR, ANCHOR_DIRECTORY):
     try:
         os.mkdir(path)
