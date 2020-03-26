@@ -283,7 +283,8 @@ class Article(object):
             self.set_article_html(article_html)
             self.set_text(text)
 
-        self.fetch_images()
+        if self.config.fetch_images:
+            self.fetch_images()
 
         self.is_parsed = True
         self.release_resources()
