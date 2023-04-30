@@ -163,10 +163,14 @@ If you are certain that an *entire* news source is in one language, **go ahead a
     两年双免0手续0利率 科鲁兹掀背金融轻松购_武汉车市_武汉汽
     车网_新浪汽车_新浪网
 
-Documentation
--------------
+Support our library
+-------------------
+`It takes only one click`_
 
-Check out `The Documentation`_ for full and detailed guides using newspaper.
+Docs
+----
+
+Check out `The Docs`_ for full and detailed guides using newspaper.
 
 Interested in adding a new language for us? Refer to: `Docs - Adding new languages <https://newspaper.readthedocs.io/en/latest/user_guide/advanced.html#adding-new-languages>`_
 
@@ -298,15 +302,6 @@ NOTE: You will still most likely need to install the following libraries via you
 
     $ curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py | python3
 
-Consulting
-----------
-
-*This service is already used around the world* by startups, top news organizations (CNN, NYT, etc),
-graduate school researchers, and, of course, hackers like you :) If you or your company are interested
-in more advanced features like: increased NLP and scraping accuracy, mis-information, fake news, author
-credibility, boosted coverage and accuracy for your use case, and etc; feel free to `email & contact me`_
-for consulting.
-
 Donations
 ---------
 
@@ -315,7 +310,6 @@ to take on things like: adding new features, bug-fix support, addressing concern
 
 - My PayPal link: `https://www.paypal.me/codelucas`_
 - My `Venmo`_ handle: @Lucas-Ou-Yang
-
 
 Development
 -----------
@@ -369,7 +363,8 @@ to talk about the future of this library and news extraction in general!
 .. _`Venmo`: https://www.venmo.com/Lucas-Ou-Yang
 
 .. _`Quickstart guide`: https://newspaper.readthedocs.io/en/latest/
-.. _`The Documentation`: https://newspaper.readthedocs.io
+.. _`The Docs`: https://newspaper.readthedocs.io
 .. _`lxml`: http://lxml.de/
 .. _`requests`: https://github.com/kennethreitz/requests
 .. _`Parse.ly`: http://parse.ly
+.. _`It takes only one click`: https://tracking.gitads.io/?campaign=gitads&repo=newspaper&redirect=gitads.io
